@@ -31,9 +31,24 @@
     p {
       margin: 0 0 1em 0;
     }
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="/media/video/hello-wave.0.webm" type="video/webm" />
+</video>
 
   <h1>about</h1>
 
