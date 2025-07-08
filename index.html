@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ryandmt.com</title>
+  <title>Ryan DMT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <div class="noise-grid"></div>
   <style>
@@ -44,7 +44,7 @@
       top: 50%;
       left: 50%;
       width: 6px;
-      height: 600px;
+      height: 1000px;
       background: #f00;
       transform: translate(-50%, -50%);
       box-shadow:
@@ -57,15 +57,23 @@
         8px 16px #000,
         16px 16px #000;
       opacity: 0.4;
-      animation: flicker 1s infinite steps(2, end);
+      animation: flicker 2s infinite steps(20, end), float 15s ease-in-out infinite;
       pointer-events: none;
       z-index: 0;
     }
 
     @keyframes flicker {
-      50% {
+      0% {
         opacity: 0.3;
-        filter: blur(0.3px);
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        opacity: 0.1;
+        filter: hue-rotate(200deg);
+      }
+      100% {
+        opacity: 0.4;
+        filter: hue-rotate(0deg);
       }
     }
 
@@ -112,7 +120,7 @@
   </section>
 
   <footer>
-    &copy; 2025 ryandmt
+    &copy; 2025 rdmt
   </footer>
 
 </body>
