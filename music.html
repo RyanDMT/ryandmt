@@ -56,8 +56,21 @@
   <script>
   function toggle(id) {
     const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
-    }
+    const isVisible = el.style.display === "block";
+    el.style.display = isVisible ? "none" : "block";
+  }
+
+  // One video plays at a time
+  document.addEventListener("play", function(e) {
+    const allVideos = document.querySelectorAll("video");
+    allVideos.forEach((video) => {
+      if (video !== e.target) {
+        video.pause();
+        // video.currentTime = 0; // optional: resets
+        // try if only mute instead of stop, swap --> .pause() with .muted = true
+      }
+    });
+  }, true);
   </script>
 </head>
 <body>
