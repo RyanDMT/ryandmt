@@ -25,6 +25,16 @@
       background: #00f;
       color: #fff;
     }
+    .project {
+      display: none;
+      margin-top: 1em;
+    }
+    .project img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.5em;
+    }
     #bg-video {
       position: fixed;
       top: 0;
@@ -37,6 +47,12 @@
       pointer-events: none;
     }
   </style>
+  <script>
+  function toggle(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
 </head>
 <body>
 
@@ -48,6 +64,24 @@
 
   <p>geometrical-abstractions / hybrid noise sampling<br />
      tool of choice: touchdesigner.</p>
+
+  <section id="live">
+  <h2>live shows</h2>
+  <p><a href="javascript:void(0)" onclick="toggle('antic')">→ ANTIC</a></p>
+  <div id="antic" class="project">
+    <img src="/media/photos/paola-vinnie-portrait-gangster.jpeg" alt="ANTIC live show" />
+    <p>Live performance visuals using reactive DMX, feedback loops, and generative motion structures.</p>
+  </div>
+</section>
+
+<section id="installations">
+  <h2>art installations</h2>
+  <p><a href="javascript:void(0)" onclick="toggle('zilzal')">→ ZILZAL</a></p>
+  <div id="zilzal" class="project">
+    <img src="/media/photos/jojo-pearl-earring.jpeg" alt="ZILZAL installation" />
+    <p>Audiovisual installation exploring temporal displacement through layered light and texture.</p>
+  </div>
+</section>
 
   <p><a href="/">← back</a></p>
 
