@@ -46,10 +46,12 @@
 </head>
 <body>
 
-<video autoplay muted loop playsinline id="bg-video">
-  <source src="/media/video/hello-wave-fast.0.webm" type="video/webm" />
-  <source src="/media/video/hello-wave-fast.0.mp4" type="video/mp4" />
-</video>
+<body ontouchstart="document.getElementById('bg-video')?.play()">
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/media/video/hello-wave-fast.0.webm" type="video/webm" />
+    <source src="/media/video/hello-wave-fast.0.mp4" type="video/mp4" />
+  </video>
+</body>
 
   <h1>about</h1>
 
