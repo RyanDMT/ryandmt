@@ -31,6 +31,16 @@
     h1, p {
       margin: 0 0 1em 0;
     }
+    .project {
+      display: none;
+      margin-top: 1em;
+    }
+    .project img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.5em;
+    }
     #bg-video {
       position: fixed;
       top: 0;
@@ -43,6 +53,12 @@
       pointer-events: none;
     }
   </style>
+  <script>
+  function toggle(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
 </head>
 <body>
 
@@ -54,6 +70,15 @@
 
   <p>hybrid sound design & beat productions<br />
   .</p>
+
+  <section id="">
+  <h2>me playing</h2>
+  <p><a href="javascript:void(0)" onclick="toggle('rdmt-piano')">→ PIANO</a></p>
+  <div id="rdmt-piano" class="project">
+    <img src="/media/video/fire-supercut-720p-w-audio.webm" alt="wow ok" />
+    <p>Live performance wow.</p>
+  </div>
+</section>
 
   <p><a href="https://soundcloud.com/ryandmt" target="_blank">→ soundcloud</a><br />
      <a href="https://rdmt.bandcamp.com" target="_blank">→ bandcamp</a></p>
