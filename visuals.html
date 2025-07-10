@@ -59,8 +59,33 @@
   <script>
   function toggle(id) {
     const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
+    const isVisible = el.style.display === "block";
+
+    // If section is being hidden
+    if (isVisible) {
+      el.style.display = "none";
+
+      // Pause and reset video if present
+      const video = el.querySelector("video");
+      if (video) {
+        video.pause();
+        // video.currentTime = 0; // optional: reset to beginning
+      }
+    } else {
+      // Just show the section — do not autoplay
+      el.style.display = "block";
     }
+  }
+
+  // Ensure only one video plays at a time
+  document.addEventListener("play", function(e) {
+    const allVideos = document.querySelectorAll("video");
+    allVideos.forEach((video) => {
+      if (video !== e.target) {
+        video.pause();
+      }
+    });
+  }, true);
   </script>
 </head>
 <body>
@@ -83,7 +108,7 @@
   <h2>live shows</h2>
 
 
-  <p><a href="javascript:void(0)" onclick="toggle('rdmt-piano')">→ PIANO</a></p>
+  <p><a href="javascript:void(0)" onclick="toggle('rdmt-piano')">→ ANTIC</a></p>
     <div id="rdmt-piano" class="project">
       <video controls playsinline style="width:60%; max-width:60%;">
         <source src="/media/video/fire-supercut-720p-w-audio.webm" type="video/webm" />
