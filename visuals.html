@@ -58,26 +58,23 @@
   </style>
   <script>
   function toggle(id) {
-    const el = document.getElementById(id);
-    const isVisible = el.style.display === "block";
+    const allProjects = document.querySelectorAll('.project');
 
-    // If section is being hidden
-    if (isVisible) {
-      el.style.display = "none";
-
-      // Pause and reset video if present
-      const video = el.querySelector("video");
-      if (video) {
-        video.pause();
-        // video.currentTime = 0; // optional: reset to beginning
+    allProjects.forEach((el) => {
+      if (el.id !== id) {
+        el.style.display = 'none';
+        const video = el.querySelector('video');
+        if (video) {
+          video.pause();
+        }
       }
-    } else {
-      // Just show the section — do not autoplay
-      el.style.display = "block";
-    }
-  }
+    });
 
-  // Ensure only one video plays at a time
+    const target = document.getElementById(id);
+    const isVisible = target.style.display === "block";
+    target.style.display = isVisible ? "none" : "block";
+  }
+    
   document.addEventListener("play", function(e) {
     const allVideos = document.querySelectorAll("video");
     allVideos.forEach((video) => {
