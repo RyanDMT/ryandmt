@@ -34,6 +34,10 @@
       background: #00f;
       color: #fff;
     }
+    .poem {
+      font-style: italic;
+      margin-left: 2em;
+    }
     .sub-link {
       margin-left: 1em;
       font-size: 0.9em;
@@ -72,6 +76,7 @@
     /* MOBILE override */
     @media (max-width: 600px) {
       .gallery-row {
+        width: calc(100% - 5em);
         flex-direction: column;
         overflow-x: visible; /* no horizontal scroll on mobile */
       }
@@ -94,7 +99,15 @@
 
   <h1><a href="/">ryandmt</a> → writing</h1>
 
-  <p>notes, scores.</p>
+  <p class="poem">
+    The wind rests. Bellflowers soften into a whisper.<br />
+    A patient linden tree relaxes in the snow.<br />
+    Purple tundra-lilies will whistle softly this spring<br />
+    in the northern winds, calling a new name,<br />
+    another voice of the world soon to join us.<br />
+    <br />
+    <em>(Excerpt from "In the Voice of Aura")</em>
+  </p>
 
   <h2>published work</h2>
   <p class="sub-link"><a href="javascript:void(0)" onclick="toggle('naugatuck')">→ Naugatuck River Review</a></p>
