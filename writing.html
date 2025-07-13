@@ -34,13 +34,67 @@
       background: #00f;
       color: #fff;
     }
+    .sub-link {
+      margin-left: 1em;
+      font-size: 0.9em;
+      margin-top: -0.5em;
+      margin-bottom: 1em;
+    }
+    .gallery {
+      display: none;
+      margin-left: 2em;
+      margin-top: 1em;
+    }
+    .gallery img {
+      width: 30%;
+      max-width: 30%;
+      height: auto;
+      margin-right: 1%;
+      margin-bottom: 1em;
+    }
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   </style>
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      const isVisible = el.style.display === "block";
+      el.style.display = isVisible ? "none" : "block";
+    }
+  </script>
 </head>
 <body>
 
   <h1><a href="/">ryandmt</a> → writing</h1>
 
   <p>notes, scores.</p>
+
+  <h2>published work</h2>
+  <p class="sub-link"><a href="javascript:void(0)" onclick="toggle('naugatuck')">→ Naugatuck River Review</a></p>
+  <div id="naugatuck" class="gallery">
+    <img src="/media/photos/poetry_naugatuck-1.jpg" alt="Naugatuck 1" />
+    <img src="/media/photos/poetry_maven-1.jpg" alt="Naugatuck 2" />
+    <img src="/media/photos/poetry_maven-2.jpg" alt="Naugatuck 3" />
+  </div>
+
+  <p class="sub-link"><a href="javascript:void(0)" onclick="toggle('paddler')">→ Paddler Press</a></p>
+  <div id="paddler" class="gallery">
+    <img src="/media/photos/poetry_paddler-1.jpg" alt="Paddler 1" />
+    <img src="/media/photos/poetry_osprey-1.jpg" alt="Paddler 2" />
+  </div>
+
+  <h2>self-publications</h2>
+  <p class="sub-link"><a href="javascript:void(0)" onclick="toggle('chapbook')">→ Poetry Chapbook</a></p>
+  <div id="chapbook" class="gallery">
+    <img src="/media/photos/poetry_cover-1.jpg" alt="Chapbook 1" />
+    <img src="/media/photos/poetry_rumina-1.jpg" alt="Chapbook 2" />
+    <img src="/media/photos/poetry_abstraction-1.jpg" alt="Chapbook 3" />
+    <!-- <img src="/media/photos/poetry_ryan-warren-bio-1.jpg" alt="Chapbook 4" /> -->
+  </div>
 
   <p><a href="/">← back</a></p>
 
