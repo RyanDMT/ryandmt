@@ -89,8 +89,30 @@
 
     const target = document.getElementById(id);
     const isVisible = target.style.display === "block";
-    target.style.display = isVisible ? "none" : "block";
+    
+    if (isVisible) {
+      target.style.display = "none";
+      // Remove hash from URL when closing
+      if (window.location.hash === '#' + id) {
+        history.replaceState(null, null, window.location.pathname);
+      }
+    } else {
+      target.style.display = "block";
+      // Add hash to URL when opening
+      window.location.hash = id;
+    }
   }
+
+  // Handle direct links (when someone visits ryandmt.com/visuals#distorted-1)
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const target = document.getElementById(id);
+      if (target) {
+        target.style.display = "block";
+      }
+    }
+  });
     
   document.addEventListener("play", function(e) {
     const allVideos = document.querySelectorAll("video");
@@ -121,15 +143,15 @@
 
   <h2>live shows</h2>
 
-  <p><a href="javascript:void(0)" onclick="toggle('shared-freq-1')">→ DISTORTED II</a></p>
-    <div id="shared-freq-1" class="project">
-      <video controls playsinline style="width:60%; max-width:60%;">
+  <p><a href="javascript:void(0)" onclick="toggle('distorted-2')">→ DISTORTED II</a></p>
+    <div id="distorted-2" class="project">
+      <video controls playsinline muted style="width:60%; max-width:60%;">
         <source src="/media/video/Distorted_VOL_Supercut-hb.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <div class="project-details">
+        <p>Live visuals for A. Fruit's second edition of Distorted.</p>
         <p>Sala Vol, Barcelona.</p>
-        <!-- <p>Video coming soon!</p> -->
       </div>
     </div>
 
